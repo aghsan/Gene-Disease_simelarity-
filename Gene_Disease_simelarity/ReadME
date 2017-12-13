@@ -1,0 +1,56 @@
+
+OMIM_phenotype_annotation.tab << from shenay
+input to OMIMformating2.pl
+then out put
+OMIM_desise_phenotype.txt
+
+----------------------------------------------------------
+
+sim.pathogenMGI.pairwise.groovy
+input 
+TM_gene_phenotype2.txt
+and
+OMIM_desise_phenotype.txt
+
+and out put score in the output folder
+------------------------------------------------
+
+saperateDataBasedOnNPMI2.pl
+and get NPMI0.2_occ5_valedated2.txt
+then modify it to TM_gene_phenotype2.txt
+------------------------------------------------
+
+simelaritymeasure.pl ((for understanding score))
+take input
+
+TM_gene_phenotype2.txt
+OMIM_desise_phenotype.txt
+and 
+the semantic similary score form output folder
+and produce 
+
+rensi_gene_desise_semilarity_modified2.txt
+(( check the code with shenay again ))
+
+---------------------------------------------------
+###know i have#######
+gold :: mapped_uniprotOMIM_uniqe_lastone.txt
+my data :: rensi_gene_desise_semilarity_modified2.txt
+------------------------------------------------------
+lets restrict gold to my TM
+restrictGold.pl
+take input 
+OMIM_desise_phenotype.txt
+mapped_uniprotOMIM_uniqe_lastone.txt
+
+output 
+restrectedMapped_uniprotOMIM_uniqe_lastone.txt 
+
+-------------------------------------------------
+###know i have#######
+gold :: restrectedmapped_uniprotOMIM_uniqe_lastone.txt
+my data :: rensi_gene_desise_semilarity_modified2.txt
+--------------------------------
+new one
+gold :: restrectedmapped_uniprotOMIM_uniqe_lastone.txt
+my data :: resnik.sim.gene.disease.txt
