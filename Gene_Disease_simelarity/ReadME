@@ -54,3 +54,21 @@ my data :: rensi_gene_desise_semilarity_modified2.txt
 new one
 gold :: restrectedmapped_uniprotOMIM_uniqe_lastone.txt
 my data :: resnik.sim.gene.disease.txt
+
+
+
+each time i calculate the AUC value for each rank i do the following
+1) use saperateDataBasedOnNPMI.pl
+to get an output file (( rank2_occ4.txt ))
+i use this command to chang the '_' to ':' in the output file 
+sed 's/\_/\:/g' rank2_occ4.txt > TM_gene_phenotype_rank2.txt
+
+2) run sim.pathogens-other.groovy
+
+3) run simelaritymeasure.pl to get ( gene disease score)
+   run simelaritymeasure_uniprot.pl to get ( gene )
+   run  simelaritymeasure_disease.pl to get ( disease )
+    then to find only get uniqe (gene and disease ) i use this command ( 1 time for disease ) ( each time for uniprot)
+    awk '!seen[$0]++' uniprotID_rank2.txt > uniprotID_rank2_uniqe.txt
+    
+ 4) run get_auc2.py
