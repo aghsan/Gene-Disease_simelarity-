@@ -1,0 +1,95 @@
+first annoutation through whatizit pipe line
+i have all the annotated text in the Output_annotated folder
+
+
+sentenceExtarction.pl 
+input 
+zip files 10k 
+output :
+PMCID \t PMID \t uniprotID \t geneName \t symptomID \t symptom \t sentence \n
+with dublicate (result.txt)
+
+
+uniqPair.pl
+remove duplicate 
+output
+gene#sympthom \t genename#sympthomname \t pmcid#pmid
+
+
+
+uniqPair2.pl
+count how many times it apears 
+output:
+gene#sympthom \t genename#sympthomname \t occurance \t occurance per artical \t pmcid_pmid#pmcid_pmid
+
+
+
+
+owl_parser3.pl
+take input .owl file
+output : subclass _ name _ parents
+
+
+reverseChiled.pl
+take input a txt file from ( owl_parser3.pl)
+output : parent \t subclasses##subclasses 
+
+
+
+uniqPair_ontologybase.pl
+input HP and MP Parent_subclasses and out put from ( uniquePair2.pl )
+output for the whole ontology co occurance
+gene#sympthom \t genename#sympthomname \t occurance \t occurance per artical \t pmcid_pmid#pmcid_pmid
+
+
+
+NPMI.pl
+take the input file ( uniqePair_ontologyBaseFrequancy.txt)
+out put the same format + the NPMI calculating 
+gene#sympthom \t genename#sympthomname \t occurance \t occurance per artical \t pmcid_pmid#pmcid_pmid \t NPMI
+
+
+
+perl compare_databases2.pl
+take input uniqePair_ontologyBaseFrequancy+NPMI_rounded.txt and HP_phenotype_uniprot2.txt an MP_phenotype_uniprot2.txt
+
+produce as i want either 
+"matching pair  : ".$gene."#".$phenotype."\n";
+or TP count for all the file
+or TP for range of the file based on the NPMI
+
+correctly count the TP
+
+
+perl restrictMyDatabase.pl
+take input  uniqePair_ontologyBaseFrequancy+NPMI_rounded.txt and  GoldStandaredPairs.txt
+and take only pairs that exsist in the gold standard (only if both exists not have to be together)
+out put
+uniqePair_ontologyBaseFrequancy+NPMI_rounded_restrictedToGS.txt
+
+
+
+expandMYdatabaseTotheOntology.pl 
+input uniqePair_ontologyBaseFrequancy+NPMI_rounded_restrictedToGS.txt HP_supclass_name_parents.txt MP_supclass_name_parents.txt
+
+output expandMydatabase.txt
+
+
+
+expandGOLDSTotheOntology.pl
+input  HP_phenotype_uniprot_modified2.txt MP_phenotype_uniprot_modified2.txt HP_supclass_name_parents.txt MP_supclass_name_parents.txt
+output
+expandGoldS.txt
+
+
+
+saperateDataBasedOnNPMI.pl
+take input uniqePair_ontologyBaseFrequancy+NPMI_rounded_restrictedToGS.txt
+produce 8 output files based on NPMI 
+in compaing folder 
+
+
+
+rankingNPMI.pl
+
+for each gene rank thier NPMI in increasing order 
