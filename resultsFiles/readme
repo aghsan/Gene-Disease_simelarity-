@@ -1,0 +1,27 @@
+
+result2.txt 
+this file contain : pmcid pmid geneID geneName phenotypeID phnotypeNmae sentence
+
+uniqePair_ontologyBaseFrequancy+NPMI_rounded2.txt
+this file contain : geneID#phenotypeID GeneName#phnotypeName occuranceOfPair co-occurancePerArticles PmcID_pmID NPMI
+
+
+uniqePair_ontologyBaseFrequancy+NPMI_rounded_restrictedToGS_sorted_Ranked
+this file contain : geneID#phenotypeID GeneName#phnotypeName occuranceOfPair co-occurancePerArticles PmcID_pmID NPMI RANK
+
+
+statistics.txt 
+this file contain : PMCID numberOfgenes numberOfUniqeGenes numberOfPhenotype numberOfuniqePhnotype
+at the end of the file i claculted the sum of every thin 
+number of pmcid contating genes and phenotype together : 571980
+genes : 7315281
+uniqe genes : 2253665
+phenotype : 7315281
+uniqe phenotype : 2048120
+uniqe pairs : 1046522
+average genes and phenotype per articles : 12.7893999790202
+average uniqe genes per article : 3.94011154236162
+average uniqe phenotype per article : 3.58075457183818
+
+
+
